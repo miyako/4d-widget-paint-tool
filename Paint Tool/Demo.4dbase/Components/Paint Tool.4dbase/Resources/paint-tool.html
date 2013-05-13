@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Paint Tool</title>
+		<!--4DIF False-->
+		<link rel="stylesheet" href="css/paint-tool.css" />
+		<script src="js/canvas.js"></script>
+		<script src="js/paint-tool.js"></script> 
+		<!--4DELSE-->
+		<script><!--4DHTML WA_Get_script("canvas")--></script>
+		<script><!--4DHTML WA_Get_script("paint-tool")--></script>
+		<style><!--4DHTML WA_Get_style("paint-tool")--></style>
+		<!--4DENDIF-->
+	</head>
+  
+	<body ondragover="return false;" ondrop="return false;">
+
+		<canvas id="myCanvas">no canvas support</canvas>
+	 
+		<select id="dtool" style="visibility:hidden;">
+			<option value="line">Line</option>
+			<option value="rect">Rectangle</option>
+			<option value="pencil">Pencil</option>
+			<option value="circle">Circle</option>
+			<option value="eraser">Eraser</option>
+			<option value="rectFill">Solid Rectangle</option>
+			<option value="circleFill">Solid Circle</option>
+			<option value="rectFillStroke">Rectangle with Borders</option>
+			<option value="circleFillStroke">Circle with Borders</option>									
+		</select>
+
+	</body>
+	
+</html>

@@ -1,0 +1,23 @@
+#container { 
+	position: relative; 
+}
+
+#myCanvas { 
+	position: absolute; 
+	left: 0px; 
+	top: 0px; 
+	border: 0px solid #000; 
+}
+
+#myCanvasTemp { 
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+}
+
+body { 
+	overflow-x: hidden; 
+	overflow-y: hidden; 
+/*	background-color: #FF0000; */
+}
+
