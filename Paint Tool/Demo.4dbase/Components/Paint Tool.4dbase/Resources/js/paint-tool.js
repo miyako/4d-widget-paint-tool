@@ -37,12 +37,20 @@ function fireEvent(element,event){
 	}
 }		
 
-function resizeCanvas(width, height) {
+function setCanvasSize(width, height) {
 	var canvas = document.getElementById('myCanvas');
-	imgSource = getData();
 	canvas.width = width;
 	canvas.height = height;
+	var tempCanvas = document.getElementById('myCanvasTemp');
+	tempCanvas.width = width;
+	tempCanvas.height = height;		
+}
+
+function resizeCanvas(width, height) {
+	imgSource = getData();
+	setCanvasSize(width, height);
 	fireEvent(window,'load');
+	window.location = "http://resizeCanvas/";
 }	
 
 function changeColor(hexColor) {
@@ -94,6 +102,7 @@ function clearCanvas() {
 	var canvas = document.getElementById('myCanvas');
 	var context = canvas.getContext('2d');
 	context.clearRect(0, 0, canvas.width, canvas.height);
+	window.location = "http://clearCanvas/";
 }
 
 function loadImage(imageSource) {
