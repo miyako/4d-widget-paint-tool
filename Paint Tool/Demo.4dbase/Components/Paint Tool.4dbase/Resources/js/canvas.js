@@ -114,6 +114,7 @@ if(window.addEventListener) {
 		function img_update () {
 			context.drawImage(tempCanvas, 0, 0);
 			contextTemp.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
+			window.location = "http://updateCanvas/update";				
 		}
 
 		// This object holds the implementation of each drawing tool.

@@ -45,14 +45,13 @@ function setCanvasSize(width, height) {
 	tempCanvas.width = width;
 	tempCanvas.height = height;		
 }
-
+/*
 function resizeCanvas(width, height) {
 	imgSource = getData();
 	setCanvasSize(width, height);
 	fireEvent(window,'load');
-	window.location = "http://resizeCanvas/";
 }	
-
+*/
 function changeColor(hexColor) {
 	var tempCanvas = document.getElementById('myCanvasTemp');
 	var tempContext = tempCanvas.getContext('2d');
@@ -74,18 +73,6 @@ function changeStrokeWidth(lWidth) {
 	tempContext.lineWidth = lWidth;
 }
 
-function undo () {
-	removeImage();
-	imgSource = savedImages.pop();
-	loadImage(imgSource);
-}
-
-function redo () {
-	saveImage();
-	imgSource = removedImages.pop();
-	loadImage(imgSource);
-}
-
 function saveImage() {
 	var canvas = document.getElementById('myCanvas');
 	var imgSrc = canvas.toDataURL("image/png");
@@ -98,14 +85,19 @@ function removeImage() {
 	removedImages.push(imgSrc);
 }
 
-function clearCanvas() {
+function clearCanvas(shouldUpdateHistory) {
 	var canvas = document.getElementById('myCanvas');
 	var context = canvas.getContext('2d');
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	window.location = "http://clearCanvas/";
+	if(shouldUpdateHistory=='true')
+	{	
+		window.location = "http://clearCanvas/update";
+	}else{
+		window.location = "http://clearCanvas/";	
+	}
 }
 
-function loadImage(imageSource) {
+function loadImage(imageSource,shouldUpdateHistory) {
 	var canvas = document.getElementById('myCanvas');
 	var context = canvas.getContext('2d');
 	var imageObject = new Image();
@@ -114,4 +106,10 @@ function loadImage(imageSource) {
 		context.drawImage(imageObject, 0, 0, canvas.width, canvas.height);
 	};
 	imageObject.src = imageSource;
+	if(shouldUpdateHistory=='true')
+	{
+		window.location = "http://updateCanvas/update";
+	}else{
+		window.location = "http://updateCanvas/";		
+	}
 }
